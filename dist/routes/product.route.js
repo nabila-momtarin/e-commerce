@@ -9,3 +9,4 @@ const product_controller_1 = require("../controller/product.controller");
 const router = express_1.default.Router();
 exports.productRoute = router;
 router.post("/create", product_controller_1.createProductController);
+router.get("/", product_controller_1.getAllProductController);

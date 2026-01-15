@@ -1,5 +1,6 @@
 import Product from "../model/product.model";
 import { IProduct } from "../model/interface/product.interface";
+import { createGunzip } from "node:zlib";
 
 export const addProduct = async (product: IProduct) => {
   try {
@@ -15,4 +16,20 @@ export const addProduct = async (product: IProduct) => {
     console.log("Error in PRODUCT SERVICE: ", err);
     throw err;
   }
+};
+
+
+export const getAllProduct = async () => {
+    try{
+        console.log("Entered in PRODUCT CONTROLLER\n");
+
+        const allProduct = await Product.find();
+
+        console.log("allProduct in SERVICE : ", allProduct);
+        
+        return allProduct;
+    }catch(err){
+        console.log("Error in PRODUCT SERVICE: ", err);
+        throw err;
+    }
 };

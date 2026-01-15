@@ -9,7 +9,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createProductController = void 0;
+exports.getAllProductController = exports.createProductController = void 0;
+//import Product from "../model/product.model";
 const product_service_1 = require("../service/product.service");
 const createProductController = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
@@ -25,7 +26,7 @@ const createProductController = (req, res) => __awaiter(void 0, void 0, void 0, 
         });
     }
     catch (err) {
-        console.log("Error in PRODUCT SERVICE: ", err);
+        console.log("Error in PRODUCT CONTROLLER: ", err);
         return res.status(500).json({
             status: 500,
             message: "Error creating product",
@@ -34,3 +35,27 @@ const createProductController = (req, res) => __awaiter(void 0, void 0, void 0, 
     }
 });
 exports.createProductController = createProductController;
+const getAllProductController = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        console.log("Entered in PRODUCT CONTROLLER");
+        console.log("\n\n\n\n\n");
+        console.log(req.body);
+        console.log("\n\n\n\n\n");
+        const allProductC = yield (0, product_service_1.getAllProduct)();
+        console.log("allProductC : CONTROLLER: ", allProductC);
+        return res.json({
+            status: 200,
+            message: "Product fetched successfully",
+            data: allProductC,
+        });
+    }
+    catch (err) {
+        console.log("Error in PRODUCT CONTROLLER: ", err);
+        return res.status(500).json({
+            status: 500,
+            message: "Error getting all product",
+            error: err.message,
+        });
+    }
+});
+exports.getAllProductController = getAllProductController;

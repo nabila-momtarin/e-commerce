@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.addProduct = void 0;
+exports.getAllProduct = exports.addProduct = void 0;
 const product_model_1 = __importDefault(require("../model/product.model"));
 const addProduct = (product) => __awaiter(void 0, void 0, void 0, function* () {
     try {
@@ -28,3 +28,16 @@ const addProduct = (product) => __awaiter(void 0, void 0, void 0, function* () {
     }
 });
 exports.addProduct = addProduct;
+const getAllProduct = () => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        console.log("Entered in PRODUCT CONTROLLER\n");
+        const allProduct = yield product_model_1.default.find();
+        console.log("allProduct in SERVICE : ", allProduct);
+        return allProduct;
+    }
+    catch (err) {
+        console.log("Error in PRODUCT SERVICE: ", err);
+        throw err;
+    }
+});
+exports.getAllProduct = getAllProduct;
