@@ -9,7 +9,7 @@
     // See also https://aka.ms/tsconfig/module
     "module": "CommonJS",
     "target": "ES6",
-   // "types": [],
+    // "types": [],
     // For nodejs:
     // "lib": ["esnext"],
     // "types": ["node"],
@@ -40,10 +40,11 @@
     // "noUncheckedSideEffectImports": true,
     // "moduleDetection": "force",
     "skipLibCheck": true,
-// "forceConsistentCasingInFileNames": true
-
+    "forceConsistentCasingInFileNames": true,
 
     "moduleResolution": "node",
-    "esModuleInterop": true,
-  }
+    "esModuleInterop": true
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
 }
