@@ -1,8 +1,8 @@
 import Product from "../model/product.model";
 import { IProduct } from "../model/interface/product.interface";
-import { createGunzip } from "node:zlib";
 
-export const addProduct = async (product: IProduct) => {
+
+export const addProductService = async (product: IProduct) => {
   try {
     console.log("Entered in PRODUCT SERVICE");
 

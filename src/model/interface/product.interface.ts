@@ -9,3 +9,5 @@ export interface IProduct {
     quantity: number;
     isDeleted: boolean;
 }
+
+//for js type

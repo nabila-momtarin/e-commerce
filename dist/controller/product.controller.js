@@ -15,9 +15,9 @@ const product_service_1 = require("../service/product.service");
 const createProductController = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         console.log("Entered in PRODUCT CONTROLLER");
-        console.log("\n\n\n\n\n");
+        //  console.log("\n\n\n\n\n");
         console.log(req.body);
-        console.log("\n\n\n\n\n");
+        // console.log("\n\n\n\n\n");
         const newProductC = yield (0, product_service_1.addProduct)(req.body);
         return res.json({
             status: 200,

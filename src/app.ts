@@ -7,7 +7,7 @@ import { productRoute } from "./routes/product.route";
 export const app = express();
 
 // Middleware to parse URL-encoded form data (like form-data in Postman)
-app.use(express.urlencoded({ extended: true }));  // This handles form-data
+//app.use(express.urlencoded({ extended: true }));  // This handles form-data
 
 //app.use(cors());
 app.use(express.json());

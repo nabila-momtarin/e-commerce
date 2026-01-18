@@ -1,5 +1,5 @@
 //import Product from "../model/product.model";
-import { addProduct , getAllProduct} from "../service/product.service";
+import { addProductService , getAllProduct} from "../service/product.service";
 import { Request, Response } from "express";
 
 export const createProductController = async (req: Request, res: Response) => {
@@ -8,7 +8,7 @@ export const createProductController = async (req: Request, res: Response) => {
   //  console.log("\n\n\n\n\n");
     console.log(req.body);
    // console.log("\n\n\n\n\n");
-    const newProductC = await addProduct(req.body);
+    const newProductC = await addProductService(req.body);
 
     return res.json({
       status: 200,

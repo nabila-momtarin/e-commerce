@@ -2,7 +2,9 @@
   "name": "e-commerce",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
+
+  "type": "module",
   "scripts": {
     "dev": "tsc && ts-node-dev --respawn --transpile-only dist/server.js",
     "watch": "tsc --watch",
@@ -13,12 +15,13 @@
     "dev2": "ts-node-dev --respawn --transpile-only src/server.js",
     "build": "tsc"
   },
+
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nabila-momtarin/e-commerce.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Nab",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/nabila-momtarin/e-commerce/issues"
