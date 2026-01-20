@@ -1,35 +1,26 @@
-import Product from "../model/product.model";
 import { IProduct } from "../model/interface/product.interface";
+import { Model } from "mongoose";
+import Product from "../model/product.model";
 
+export class ProductService{
 
-export const addProductService = async (product: IProduct) => {
-  try {
-    console.log("Entered in PRODUCT SERVICE");
-
-    const newProduct = await Product.create(product);
-    console.log("newProduct: ", newProduct);  
-    console.log(`newProduct ${newProduct}`);
-
-
-    return newProduct;
-  } catch (err) {
-    console.log("Error in PRODUCT SERVICE: ", err);
-    throw err;
-  }
-};
-
-
-export const getAllProduct = async () => {
-    try{
-        console.log("Entered in PRODUCT CONTROLLER\n");
-
-        const allProduct = await Product.find();
-
-        console.log("allProduct in SERVICE : ", allProduct);
+   
+    constructor(
         
-        return allProduct;
-    }catch(err){
-        console.log("Error in PRODUCT SERVICE: ", err);
-        throw err;
+    ){}
+
+    async createProduct(data: Partial<IProduct> ) {
+        const product = await Product.create(data);
+        return product;
     }
-};
+}
+
+
+
+    
+}
+
+//roductModel: Model<IProduct>: যখন আপনি ডাটাবেস লাইব্রেরির 
+// (যেমন Mongoose) Model টাইপ ব্যবহার করেন, 
+// তখন টাইপস্ক্রিপ্ট বুঝতে পারে যে এই অবজেক্টটির ভেতরে 
+// .create(), .find(), .delete() মেথডগুলো আছে।

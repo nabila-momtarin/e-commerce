@@ -1,54 +1,23 @@
-//import Product from "../model/product.model";
-import { addProductService , getAllProduct} from "../service/product.service";
 import { Request, Response } from "express";
+import { IProduct } from "../model/interface/product.interface";
+import { ProductService } from "../service/product.service";
 
-export const createProductController = async (req: Request, res: Response) => {
-  try {
-    console.log("Entered in PRODUCT CONTROLLER");
-  //  console.log("\n\n\n\n\n");
-    console.log(req.body);
-   // console.log("\n\n\n\n\n");
-    const newProductC = await addProductService(req.body);
-
-    return res.json({
-      status: 200,
-      message: "Product created successfully",
-      data: newProductC,
-    });
-  } catch (err: any) {
-    console.log("Error in PRODUCT CONTROLLER: ", err);
-    return res.status(500).json({
-      status: 500,
-      message: "Error creating product",
-      error: err.message,
-    });
+export class ProductController {
+    private productService: ProductService ;
+  constructor() {
+    this.productService = new ProductService();
   }
-};
 
-export const getAllProductController = async (req: Request, res: Response) => {
-  try{
-    console.log("Entered in PRODUCT CONTROLLER");
-    console.log("\n\n\n\n\n");
-    console.log(req.body);
-    console.log("\n\n\n\n\n");
+   createProduct=async(req: Request, res: Response)=>{
+    try {
+      console.log("Entered in PRODUCT CONTROLLER");
 
-    const allProductC = await getAllProduct();
+      const data = req.body;
 
-    console.log("allProductC : CONTROLLER: ", allProductC);
-
-    return res.json({
-      status: 200,
-      message: "Product fetched successfully",
-      data: allProductC,
-    });
-
-
-  }catch (err: any) {
-    console.log("Error in PRODUCT CONTROLLER: ", err);
-    return res.status(500).json({
-      status: 500,
-      message: "Error getting all product",
-      error: err.message,
-    });
+      const product = await this.productService.createProduct(data);
+      res.status(201).json(product);
+    } catch (err: any) {
+      console.log(err);
+    }
   }
-};
+}

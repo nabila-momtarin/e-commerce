@@ -12,32 +12,19 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getAllProduct = exports.addProduct = void 0;
+exports.ProductService = void 0;
 const product_model_1 = __importDefault(require("../model/product.model"));
-const addProduct = (product) => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        console.log("Entered in PRODUCT SERVICE");
-        const newProduct = yield product_model_1.default.create(product);
-        console.log("newProduct: ", newProduct);
-        console.log(`newProduct ${newProduct}`);
-        return newProduct;
+class ProductService {
+    constructor() { }
+    createProduct(data) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const product = yield product_model_1.default.create(data);
+            return product;
+        });
     }
-    catch (err) {
-        console.log("Error in PRODUCT SERVICE: ", err);
-        throw err;
-    }
-});
-exports.addProduct = addProduct;
-const getAllProduct = () => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        console.log("Entered in PRODUCT CONTROLLER\n");
-        const allProduct = yield product_model_1.default.find();
-        console.log("allProduct in SERVICE : ", allProduct);
-        return allProduct;
-    }
-    catch (err) {
-        console.log("Error in PRODUCT SERVICE: ", err);
-        throw err;
-    }
-});
-exports.getAllProduct = getAllProduct;
+}
+exports.ProductService = ProductService;
+//roductModel: Model<IProduct>: যখন আপনি ডাটাবেস লাইব্রেরির 
+// (যেমন Mongoose) Model টাইপ ব্যবহার করেন, 
+// তখন টাইপস্ক্রিপ্ট বুঝতে পারে যে এই অবজেক্টটির ভেতরে 
+// .create(), .find(), .delete() মেথডগুলো আছে।

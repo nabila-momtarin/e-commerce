@@ -10,7 +10,7 @@ const product_route_1 = require("./routes/product.route");
 //import cors from "cors";
 exports.app = (0, express_1.default)();
 // Middleware to parse URL-encoded form data (like form-data in Postman)
-exports.app.use(express_1.default.urlencoded({ extended: true })); // This handles form-data
+//app.use(express.urlencoded({ extended: true }));  // This handles form-data
 //app.use(cors());
 exports.app.use(express_1.default.json());
 //routes

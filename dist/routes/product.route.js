@@ -5,8 +5,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.productRoute = void 0;
 const express_1 = __importDefault(require("express"));
+// import { ProductController, ProductController} from "../controller/product.controller";
 const product_controller_1 = require("../controller/product.controller");
 const router = express_1.default.Router();
 exports.productRoute = router;
-router.post("/create", product_controller_1.createProductController);
-router.get("/", product_controller_1.getAllProductController);
+const productController = new product_controller_1.ProductController();
+router.post("/create", productController.createProduct.bind(productController));
