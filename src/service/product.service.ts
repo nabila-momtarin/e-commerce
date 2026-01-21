@@ -1,10 +1,12 @@
 import { IProduct } from "../model/interface/product.interface";
 import { ProductRepository } from "../repository/product.repository";
+import { injectable } from "tsyringe";
 
+@injectable()
 export class ProductService {
-  private productRepository: ProductRepository;
-  constructor() {
-    this.productRepository = new ProductRepository();
+//   private productRepository: ProductRepository;
+  constructor(private productRepository: ProductRepository) {
+    // this.productRepository = new ProductRepository();
   }
 
   async createProduct(data: Partial<IProduct>) {

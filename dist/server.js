@@ -9,6 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+require("reflect-metadata"); // This is necessary for tsyringe
 // import express from "express";
 const env_1 = require("./config/env");
 const db_1 = require("./config/db");

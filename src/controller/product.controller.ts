@@ -1,11 +1,12 @@
 import { Request, Response } from "express";
-// import { IProduct } from "../model/interface/product.interface";
 import { ProductService } from "../service/product.service";
+import { injectable } from "tsyringe";
 
+@injectable()
 export class ProductController {
-  private productService: ProductService;
-  constructor() {
-    this.productService = new ProductService();
+  // private productService: ProductService;
+  constructor(private productService: ProductService) {
+    // this.productService = new ProductService();
   }
 
   createProduct = async (req: Request, res: Response) => {

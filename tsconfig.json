@@ -20,6 +20,9 @@
     // "declaration": true,
     // "declarationMap": true,
 
+    "experimentalDecorators": true,// Enable decorators
+    "emitDecoratorMetadata": true,  // Enable metadata reflection
+
     // // Stricter Typechecking Options
     // "noUncheckedIndexedAccess": true,
     // "exactOptionalPropertyTypes": true,
