@@ -3,12 +3,12 @@ import { IProduct } from "../model/interface/product.interface";
 import { ProductService } from "../service/product.service";
 
 export class ProductController {
-    private productService: ProductService ;
+  private productService: ProductService;
   constructor() {
     this.productService = new ProductService();
   }
 
-   createProduct=async(req: Request, res: Response)=>{
+  createProduct = async (req: Request, res: Response) => {
     try {
       console.log("Entered in PRODUCT CONTROLLER");
 
@@ -19,5 +19,5 @@ export class ProductController {
     } catch (err: any) {
       console.log(err);
     }
-  }
+  };
 }

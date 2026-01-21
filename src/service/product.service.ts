@@ -16,10 +16,6 @@ export class ProductService{
 }
 
 
-
-    
-}
-
 //roductModel: Model<IProduct>: যখন আপনি ডাটাবেস লাইব্রেরির 
 // (যেমন Mongoose) Model টাইপ ব্যবহার করেন, 
 // তখন টাইপস্ক্রিপ্ট বুঝতে পারে যে এই অবজেক্টটির ভেতরে 
