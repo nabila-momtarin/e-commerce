@@ -1,16 +1,14 @@
 import { IProduct } from "../model/interface/product.interface";
-import { Model } from "mongoose";
-import Product from "../model/product.model";
 import { ProductRepository } from "../repository/product.repository";
 
 export class ProductService {
-  constructor(
-    //    private productModel: Model<IProduct>,
-    private productRepository: ProductRepository,
-  ) {}
+  private productRepository: ProductRepository;
+  constructor() {
+    this.productRepository = new ProductRepository();
+  }
 
   async createProduct(data: Partial<IProduct>) {
-    const product = await this.productRepository.create(data);
+    const product = await this.productRepository.createProduct(data);
     return product;
   }
 }
