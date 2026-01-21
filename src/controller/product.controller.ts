@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { IProduct } from "../model/interface/product.interface";
+// import { IProduct } from "../model/interface/product.interface";
 import { ProductService } from "../service/product.service";
 
 export class ProductController {
